@@ -67,10 +67,13 @@ ServerUnit::ServerUnit(int port)
 
 ServerUnit &ServerUnit::operator=(ServerUnit const  &src)
 {
-	listen_socketFD = src.listen_socketFD;
-	//std::copy(src.client_socket.begin(), src.client_socket.end(), client_socket);
-	port = src.port;
-	_request = src._request;
+	if (this != &src)
+	{
+		listen_socketFD = src.listen_socketFD;
+	//	std::copy(src.client_socket.begin(), src.client_socket.end(), client_socket);
+		port = src.port;
+		_request = src._request;
+	}
 	return *this;
 }
 
@@ -105,12 +108,12 @@ std::string ServerUnit::getRequestStr()
 ServerUnit::ServerUnit(const ServerUnit &src)
 {
 	listen_socketFD = src.listen_socketFD;
-//	client_socket = src.client_socket; //Дописать
+	//client_socket = src.client_socket; //Дописать
 	port = src.port;
 	_request = src._request;
 }
 
-int ServerUnit::getClientFD()
+std::vector<int> ServerUnit::getClientFD()
 {
-	//return (client_socket);
+	return (client_socket);
 }

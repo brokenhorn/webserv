@@ -1,0 +1,164 @@
+#include "parser.hpp"
+
+//struct	Location{
+//	std::string			location;
+//	std::string			index;
+//	std::vector<size_t>	methods;
+//	std::string			root;
+//	bool				autoindex;
+//	int					max_body;
+//	std::string			exec;
+//};
+//
+//struct	Serv{
+//	std::string				ip;
+//	int						port;
+//	std::string				server_name;
+//	std::string				error_page;
+//	std::vector<Location>	locations;
+//	std::string				redirect;
+//};
+
+int num_space(std::string str){
+	int i = 0;
+
+	while (str[i] == ' ' || str[i] == '\t')
+		i++;
+	return i;
+}
+
+int checker_meth(char *buf){
+	if (strstr(buf, "GET"))
+		return GET;
+	if (strstr(buf, "POST"))
+		return POST;
+	if (strstr(buf, "DELETE"))
+		return DELETE;
+	return -1;
+}
+
+bool parse_location(std::string line, bool openServ, bool openLoc, Location &loc){
+	int start_f, meth;
+	char *buf, *del;
+	std::string str;
+	if (openLoc && openServ){
+		if ((start_f = line.find("location")) != -1){
+			loc.location = line.substr(start_f + 9, line.find("{") - (start_f + 9));
+		}
+		if ((start_f = line.find("methods")) != -1){
+			del = (char *)line.substr(start_f + 7).c_str();
+			buf = strtok(del," \t");
+			if ((meth = checker_meth(buf)) != -1)
+				loc.methods.push_back(meth);
+			while (buf){
+				buf = strtok(0, " \t");
+				if (buf && (meth = checker_meth(buf)) != -1)
+					loc.methods.push_back(meth);
+			}
+		}
+		if ((start_f = line.find("index")) != -1){
+			start_f += num_space(line.substr(start_f + 5));
+			loc.index = line.substr(start_f + 5);
+		}
+		if ((start_f = line.find("root")) != -1){
+			start_f += num_space(line.substr(start_f + 4));
+			loc.root = line.substr(start_f + 4);
+		}
+		if ((start_f = line.find("autoindex")) != -1){
+			if (line.find("on") != -1)
+				loc.autoindex = true;
+			else if (line.find("off") != -1)
+				loc.autoindex = false;
+		}
+		if ((start_f = line.find("max_body")) != -1){
+			start_f += num_space(line.substr(start_f + 8));
+			loc.max_body = std::stoi(line.substr(start_f + 8));
+		}
+		if ((start_f = line.find("exec")) != -1){
+			start_f += num_space(line.substr(start_f + 4));
+			loc.exec = line.substr(start_f + 4);
+		}
+	}
+}
+
+bool parse_server(bool isOpen, std::string line, Serv &serv){
+	int start_f, start_port;
+	if (isOpen){
+		if ((start_f = line.find("listen")) != -1){
+			start_port = line.find(":");
+			serv.ip = line.substr(start_f + 7, start_port - (start_f + 7));
+			serv.port = std::stoi(line.substr(start_port + 1, line.find(";", start_port) - start_port - 1));
+		} else if ((start_f = line.find("return")) != -1){
+			serv.redirect = line.substr(start_f + 7);
+		} else if ((start_f = line.find("error_page")) != -1){
+			serv.error_page = line.substr(start_f + 11);
+		} else if ((start_f = line.find("server_name")) != -1){
+			serv.server_name = line.substr(start_f + 12);
+		}
+	}
+}
+
+void servCleaner(Serv &serv){
+	serv.ip = "";
+	serv.port = 0;
+	serv.server_name = "";
+	serv.error_page = "";
+	serv.locations.erase(serv.locations.begin(), serv.locations.end());
+	serv.redirect = "";
+}
+
+void locCleaner(Location &loc){
+	loc.location = "";
+	loc.index = "";
+	loc.methods.erase(loc.methods.begin(), loc.methods.end());
+	loc.root = "";
+	loc.autoindex = false;
+	loc.max_body = -1;
+	loc.exec = "";
+}
+
+std::vector<Serv>	parser(){
+	std::ifstream conf(FILE_OPEN);
+	std::vector<Serv> vServs;
+	std::string line;
+	Serv serv;
+	Location loc;
+	bool check_loc = CLOS_FIGURE;
+	bool check_serv = CLOS_FIGURE;
+
+	while (getline(conf, line)) {
+		if (line.find("server {") != -1)
+			check_serv = OPEN_FIGURE;
+		else if (line.find("server }") != -1)
+			check_serv = CLOS_FIGURE;
+		parse_server(check_serv, line, serv);
+		if (line.find("location") != -1)
+			check_loc = OPEN_FIGURE;
+		else if (line.find("locend }") != -1)
+			check_loc = CLOS_FIGURE;
+		parse_location(line, check_serv, check_loc, loc);
+		if (!check_loc && !loc.methods.empty()){
+			serv.locations.push_back(loc);
+			locCleaner(loc);
+//			loc.methods.erase(loc.methods.begin(), loc.methods.end());
+		}
+		if (!check_serv && !serv.ip.empty()){
+			vServs.push_back(serv);
+			servCleaner(serv);
+		}
+	}
+	return vServs;
+}
+
+//int main() {
+//	std::vector<Serv> servers;
+//	servers = parser();
+//	std::cout <<  servers[0].port << std::endl;
+//	std::cout <<  servers[1].port << std::endl;
+//	return 0;
+//}
+
+//while(*list){
+//
+//	list->next;
+//}

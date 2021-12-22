@@ -6,8 +6,6 @@
 
 Server::Server()
 {
-	//client_socketFD = -1;
-	//int nfds = listen_socketFD.size();
 	memset(fds, 0, sizeof(fds));
 	rc = -1;
 	len = 0; i = 0; j = 0;
@@ -18,7 +16,7 @@ Server::Server()
 	bzero(buffer, 65536);
 	nfds = 0;
 
-//	port = 8000;//временно
+
 }
 
 Server::~Server()
@@ -40,19 +38,19 @@ int Server::poll_process()
 	}
 
 	//******
+
 	c_size =  nfds;
 	for (i = 0; i < c_size; i++)
 	{
 		if (fds[i].revents == 0)
 			continue;
 
-		if (fds[i].revents  != fds[i].revents & (POLLIN | POLLHUP))
+		if (fds[i].revents  != (fds[i].revents & (POLLIN | POLLHUP)))//мб убрать скобкипсоле !=
 		{
 			printf("  Error! revents = %d\n", fds[i].revents);
 			end_server = TRUE;
 			break;
 		}
-//		for (std::vector<int>::iterator masterFD = listen_socketFD.begin(); masterFD < listen_socketFD.end(); ++masterFD)
 
 		int checkListen = 0;
 		ServerUnit *tmp;
@@ -64,12 +62,12 @@ int Server::poll_process()
 				tmp = &(*unit);// сохраняешь в копию а надо в оригинал
 				break;
 			}
-			tmp = &(*unit);
-//			if (fds[i].fd == unit->getClientFD())
-//			{
-//				*tmp = *unit;
-//				break;
-//			}
+			for(int d = 0; d < (int)unit->getClientFD().size(); ++d)
+			{
+				if (fds[i].fd == unit->getClientFD()[d])
+					tmp = &(*unit);
+			}
+			//tmp = &(*unit); // неправильно, будет слушать всегда последний FD, если попались не мастер_сокеты, но возможно на корректность работы не влияет
 		}
 
 		if (checkListen == 1)
@@ -80,18 +78,19 @@ int Server::poll_process()
 		}
 		else //recv
 		{
-			close_conn == FALSE;
+			close_conn = FALSE;
 			do
 			{
 				if (read_process(*tmp) == -1)
 				{
 					break;
 				}
-			//	printf("  %d bytes received\n", len);
 
+				Request parse(tmp->getRequestStr());
+				//**Response answer(parse);**//
 				//** answer = html-parse(unit->_request**//
 
-				if (send_process(*tmp) == -1)//отправить *unit
+				if (send_process(*tmp) == -1)
 					break;
 			} while (TRUE); //мб без цикла
 			if (close_conn)
@@ -101,18 +100,17 @@ int Server::poll_process()
 				compress_array = TRUE;
 			}
 		}
-		//}
 	}
 	return(1);
 }
 
-int Server::accept_process(ServerUnit unit)
+int Server::accept_process(ServerUnit &unit)
 {
 	int tmp = -1;
 	do
 	{
 		tmp = accept(fds[i].fd, NULL, NULL);
-		std::cout << "Doing accept..."  << tmp << std::endl;
+		std::cout << "Doing accept..."  << tmp << std::endl; // потом убрать?
 		if (tmp < 0)
 		{
 			if (errno != EWOULDBLOCK)
@@ -131,7 +129,7 @@ int Server::accept_process(ServerUnit unit)
 	return 1;
 }
 
-int Server::read_process(ServerUnit unit)
+int Server::read_process(ServerUnit &unit)
 {
 	size_t readed_bytes = 0;
 	unit.cleanRequestStr();
@@ -156,7 +154,6 @@ int Server::read_process(ServerUnit unit)
 	}
 
 	unit.addRequestStr(parse_buf);
-	//_recv_b += std::string(buffer);
 	readed_bytes  = unit.getRequestStr().find("\r\n\r\n");
 
 	if (readed_bytes != std::string::npos)
@@ -165,12 +162,15 @@ int Server::read_process(ServerUnit unit)
 		{
 			if(unit.getRequestStr().find("Transfer-Encoding: chunked") != std::string::npos)
 			{
-				//дописать
+				if (unit.getRequestStr().rfind("0\r\n\r\n") == std::string::npos)
+					return (-1);
+				else
+					return (1);
 			}
 			return (1);
 		}
 		len = std::atoi(unit.getRequestStr().substr(unit.getRequestStr().find("Content-Length: ") + 16, 10).c_str());
-		if (unit.getRequestStr().size() >= len + i  + 4)
+		if ((int)unit.getRequestStr().size() >= (len + i  + 4))
 		{
 			close_conn = TRUE;
 			return (-1);
@@ -201,8 +201,10 @@ void Server::ft_compress_array()
 	}
 }
 
-int Server::send_process(ServerUnit unit)
+int Server::send_process(ServerUnit &unit)
 {
+	int sended_bytes = 0;
+
 	std::stringstream response_body;
 	std::stringstream sresponse;
 	response_body << "<title>Test C++ HTTP Server</title>\n"
@@ -219,14 +221,18 @@ int Server::send_process(ServerUnit unit)
 			 << "Content-Length: " << response_body.str().length()
 			 << "\r\n\r\n"
 			 << response_body.str();
-	//answer = response;
-	rc = send(fds[i].fd, sresponse.str().c_str(), sresponse.str().length(), 0);
-	if (rc < 0)
+//	//answer = response;
+	do
 	{
-		perror("  send() failed");
-		close_conn = TRUE;
-		return (-1);
-	}
+		rc = send(fds[i].fd, sresponse.str().c_str(), sresponse.str().length(), 0);
+		sended_bytes += rc;
+		if (rc < 0)
+		{
+			perror("  send() failed");
+			close_conn = TRUE;
+			return (-1);
+		}
+	} while (sended_bytes != sresponse.str().size());
 	return (1);
 }
 
@@ -250,15 +256,13 @@ int Server::preprocess()
 {
 	int q = 0;
 
-
-
-	while(listen_socketFD.size() > q)
+	while((int)listen_socketFD.size() > q)
 	{
 		fds[q].fd = listen_socketFD[q];
 		fds[q].events = POLLIN;
 		q++;
 	}
-	timeout = (3 * 60 * 1000);
+	timeout = (3 * 60 * 1000); //тут еще подумать
 	return(1);
 }
 
@@ -269,12 +273,17 @@ void Server::addServerUnit(ServerUnit &serv)
 	nfds++;
 }
 
-int Server::getCompressArr()
+int Server::getCompressArr() const
 {
 	return compress_array;
 }
 
 void Server::setCompressArr(int t)
 {
-	compress_array == t;
+	compress_array = t;
+}
+
+void Server::setConfigs(std::vector<Serv> const &conf)
+{
+	s_configs = conf;
 }

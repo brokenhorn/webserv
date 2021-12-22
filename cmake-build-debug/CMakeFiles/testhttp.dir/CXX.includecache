@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/Users/vmaricru/Desktop/testhttp/Request.hpp
+iostream
+/Users/vmaricru/Desktop/testhttp/iostream
+string
+/Users/vmaricru/Desktop/testhttp/string
+map
+/Users/vmaricru/Desktop/testhttp/map
+vector
+/Users/vmaricru/Desktop/testhttp/vector
+
 /Users/vmaricru/Desktop/testhttp/Server.cpp
 Server.hpp
 /Users/vmaricru/Desktop/testhttp/Server.hpp
@@ -37,8 +47,12 @@ iostream
 -
 vector
 /Users/vmaricru/Desktop/testhttp/vector
+parser.hpp
+/Users/vmaricru/Desktop/testhttp/parser.hpp
 ServerUnit.hpp
 /Users/vmaricru/Desktop/testhttp/ServerUnit.hpp
+Request.hpp
+/Users/vmaricru/Desktop/testhttp/Request.hpp
 
 /Users/vmaricru/Desktop/testhttp/ServerUnit.hpp
 sys/types.h
@@ -67,4 +81,20 @@ iostream
 -
 vector
 /Users/vmaricru/Desktop/testhttp/vector
+
+/Users/vmaricru/Desktop/testhttp/parser.hpp
+iostream
+-
+fstream
+-
+string
+-
+string.h
+-
+vector
+-
+
+/Users/vmaricru/Desktop/testhttp/start.cpp
+Server.hpp
+/Users/vmaricru/Desktop/testhttp/Server.hpp
 

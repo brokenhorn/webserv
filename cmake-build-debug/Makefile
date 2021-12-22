@@ -129,6 +129,30 @@ testhttp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/build
 .PHONY : testhttp/fast
 
+Request.o: Request.cpp.o
+.PHONY : Request.o
+
+# target to build an object file
+Request.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/Request.cpp.o
+.PHONY : Request.cpp.o
+
+Request.i: Request.cpp.i
+.PHONY : Request.i
+
+# target to preprocess a source file
+Request.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/Request.cpp.i
+.PHONY : Request.cpp.i
+
+Request.s: Request.cpp.s
+.PHONY : Request.s
+
+# target to generate assembly for a file
+Request.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/Request.cpp.s
+.PHONY : Request.cpp.s
+
 Server.o: Server.cpp.o
 .PHONY : Server.o
 
@@ -177,6 +201,30 @@ ServerUnit.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/ServerUnit.cpp.s
 .PHONY : ServerUnit.cpp.s
 
+parser.o: parser.cpp.o
+.PHONY : parser.o
+
+# target to build an object file
+parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/parser.cpp.o
+.PHONY : parser.cpp.o
+
+parser.i: parser.cpp.i
+.PHONY : parser.i
+
+# target to preprocess a source file
+parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/parser.cpp.i
+.PHONY : parser.cpp.i
+
+parser.s: parser.cpp.s
+.PHONY : parser.s
+
+# target to generate assembly for a file
+parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/parser.cpp.s
+.PHONY : parser.cpp.s
+
 start.o: start.cpp.o
 .PHONY : start.o
 
@@ -210,12 +258,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... testhttp"
+	@echo "... Request.o"
+	@echo "... Request.i"
+	@echo "... Request.s"
 	@echo "... Server.o"
 	@echo "... Server.i"
 	@echo "... Server.s"
 	@echo "... ServerUnit.o"
 	@echo "... ServerUnit.i"
 	@echo "... ServerUnit.s"
+	@echo "... parser.o"
+	@echo "... parser.i"
+	@echo "... parser.s"
 	@echo "... start.o"
 	@echo "... start.i"
 	@echo "... start.s"

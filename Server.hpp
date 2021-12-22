@@ -18,42 +18,40 @@
 #include <sys/ioctl.h>
 #include <iostream>
 #include "vector"
-
+#include "parser.hpp"
 
 
 #define TRUE             1
 #define FALSE            0
 
 #include "ServerUnit.hpp"
+#include "Request.hpp"
 
 class Server {
 private:
-	//struct sockaddr_in6 stSockAddr;
+
 	struct pollfd fds[200];
-//	int client_socketFD; //= -1;
+
 
 	int nfds;
 	char buffer[65536];//возможно /0 в конце
 
-	char * answer;
-	int len, i, j, rc, on, c_size;
+	//char * answer;
+	int len, i, j, rc,  c_size;
 	int    end_server, compress_array;
 	int timeout;
 	int close_conn;
-	//std::string _recv_b;
-	//int port;
-	//int listen_socketFD;
+
 
 	std::vector<int> client_socketFD;
 	std::vector<int> listen_socketFD;
-//	std::vector<std::string> fds_request;
 
-	//size_t readed_bytes;
+	std::vector<Serv> s_configs;
 	std::vector<ServerUnit> servers;
 
-	int accept_process(ServerUnit unit);
-	int read_process(ServerUnit unit);
-	int send_process(ServerUnit unit);
+	int accept_process(ServerUnit &unit);
+	int read_process(ServerUnit &unit);
+	int send_process(ServerUnit &unit);
 public:
 	Server();
 	~Server();
@@ -71,9 +69,10 @@ public:
 	void close_fds();
 
 	int get_end_server() const;
-	int getCompressArr();
+	int getCompressArr() const;
 	void setCompressArr(int t);
 	void addServerUnit(ServerUnit &serv);
+	void setConfigs(std::vector<Serv> const &conf);
 };
 
 

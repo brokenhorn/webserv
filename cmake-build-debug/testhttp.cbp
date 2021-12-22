@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/vmaricru/Desktop/testhttp/Request.cpp">
+			<Option target="testhttp"/>
+		</Unit>
+		<Unit filename="/Users/vmaricru/Desktop/testhttp/Request.hpp">
+			<Option target="testhttp"/>
+		</Unit>
 		<Unit filename="/Users/vmaricru/Desktop/testhttp/Server.cpp">
 			<Option target="testhttp"/>
 		</Unit>
@@ -90,6 +96,12 @@
 			<Option target="testhttp"/>
 		</Unit>
 		<Unit filename="/Users/vmaricru/Desktop/testhttp/ServerUnit.hpp">
+			<Option target="testhttp"/>
+		</Unit>
+		<Unit filename="/Users/vmaricru/Desktop/testhttp/parser.cpp">
+			<Option target="testhttp"/>
+		</Unit>
+		<Unit filename="/Users/vmaricru/Desktop/testhttp/parser.hpp">
 			<Option target="testhttp"/>
 		</Unit>
 		<Unit filename="/Users/vmaricru/Desktop/testhttp/start.cpp">

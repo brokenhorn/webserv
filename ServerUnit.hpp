@@ -36,7 +36,7 @@ public:
 	ServerUnit &operator=(ServerUnit const  &src);
 
 	int getListenFD();
-	int getClientFD();
+	std::vector<int> getClientFD();
 
 	void addClient(int fd);
 	void cleanRequestStr();
