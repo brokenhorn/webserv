@@ -57,10 +57,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/tjohnnie/HTTP
+CMAKE_SOURCE_DIR = /Users/tjohnnie/Desktop/HTTP
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/tjohnnie/HTTP/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/tjohnnie/Desktop/HTTP/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tjohnnie/HTTP/cmake-build-debug/CMakeFiles /Users/tjohnnie/HTTP/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tjohnnie/Desktop/HTTP/cmake-build-debug/CMakeFiles /Users/tjohnnie/Desktop/HTTP/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tjohnnie/HTTP/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tjohnnie/Desktop/HTTP/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named parserHTML
+# Target rules for targets named HTTP
 
 # Build rule for target.
-parserHTML: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 parserHTML
-.PHONY : parserHTML
+HTTP: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 HTTP
+.PHONY : HTTP
 
 # fast build rule for target.
-parserHTML/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/parserHTML.dir/build.make CMakeFiles/parserHTML.dir/build
-.PHONY : parserHTML/fast
+HTTP/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HTTP.dir/build.make CMakeFiles/HTTP.dir/build
+.PHONY : HTTP/fast
 
 Request.o: Request.cpp.o
 .PHONY : Request.o
 
 # target to build an object file
 Request.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/parserHTML.dir/build.make CMakeFiles/parserHTML.dir/Request.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HTTP.dir/build.make CMakeFiles/HTTP.dir/Request.cpp.o
 .PHONY : Request.cpp.o
 
 Request.i: Request.cpp.i
@@ -142,7 +142,7 @@ Request.i: Request.cpp.i
 
 # target to preprocess a source file
 Request.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/parserHTML.dir/build.make CMakeFiles/parserHTML.dir/Request.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HTTP.dir/build.make CMakeFiles/HTTP.dir/Request.cpp.i
 .PHONY : Request.cpp.i
 
 Request.s: Request.cpp.s
@@ -150,7 +150,7 @@ Request.s: Request.cpp.s
 
 # target to generate assembly for a file
 Request.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/parserHTML.dir/build.make CMakeFiles/parserHTML.dir/Request.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HTTP.dir/build.make CMakeFiles/HTTP.dir/Request.cpp.s
 .PHONY : Request.cpp.s
 
 Response.o: Response.cpp.o
@@ -158,7 +158,7 @@ Response.o: Response.cpp.o
 
 # target to build an object file
 Response.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/parserHTML.dir/build.make CMakeFiles/parserHTML.dir/Response.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HTTP.dir/build.make CMakeFiles/HTTP.dir/Response.cpp.o
 .PHONY : Response.cpp.o
 
 Response.i: Response.cpp.i
@@ -166,7 +166,7 @@ Response.i: Response.cpp.i
 
 # target to preprocess a source file
 Response.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/parserHTML.dir/build.make CMakeFiles/parserHTML.dir/Response.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HTTP.dir/build.make CMakeFiles/HTTP.dir/Response.cpp.i
 .PHONY : Response.cpp.i
 
 Response.s: Response.cpp.s
@@ -174,7 +174,7 @@ Response.s: Response.cpp.s
 
 # target to generate assembly for a file
 Response.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/parserHTML.dir/build.make CMakeFiles/parserHTML.dir/Response.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HTTP.dir/build.make CMakeFiles/HTTP.dir/Response.cpp.s
 .PHONY : Response.cpp.s
 
 main.o: main.cpp.o
@@ -182,7 +182,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/parserHTML.dir/build.make CMakeFiles/parserHTML.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HTTP.dir/build.make CMakeFiles/HTTP.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -190,7 +190,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/parserHTML.dir/build.make CMakeFiles/parserHTML.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HTTP.dir/build.make CMakeFiles/HTTP.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -198,7 +198,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/parserHTML.dir/build.make CMakeFiles/parserHTML.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HTTP.dir/build.make CMakeFiles/HTTP.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -209,7 +209,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... parserHTML"
+	@echo "... HTTP"
 	@echo "... Request.o"
 	@echo "... Request.i"
 	@echo "... Request.s"

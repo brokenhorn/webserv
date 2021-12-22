@@ -53,10 +53,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/tjohnnie/HTTP
+CMAKE_SOURCE_DIR = /Users/tjohnnie/Desktop/HTTP
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/tjohnnie/HTTP/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/tjohnnie/Desktop/HTTP/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/parserHTML.dir/depend.make
@@ -72,44 +72,44 @@ include CMakeFiles/parserHTML.dir/flags.make
 CMakeFiles/parserHTML.dir/main.cpp.o: CMakeFiles/parserHTML.dir/flags.make
 CMakeFiles/parserHTML.dir/main.cpp.o: ../main.cpp
 CMakeFiles/parserHTML.dir/main.cpp.o: CMakeFiles/parserHTML.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/tjohnnie/HTTP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/parserHTML.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/parserHTML.dir/main.cpp.o -MF CMakeFiles/parserHTML.dir/main.cpp.o.d -o CMakeFiles/parserHTML.dir/main.cpp.o -c /Users/tjohnnie/HTTP/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/parserHTML.dir/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/parserHTML.dir/main.cpp.o -MF CMakeFiles/parserHTML.dir/main.cpp.o.d -o CMakeFiles/parserHTML.dir/main.cpp.o -c /Users/tjohnnie/Desktop/HTTP/main.cpp
 
 CMakeFiles/parserHTML.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/parserHTML.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tjohnnie/HTTP/main.cpp > CMakeFiles/parserHTML.dir/main.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tjohnnie/Desktop/HTTP/main.cpp > CMakeFiles/parserHTML.dir/main.cpp.i
 
 CMakeFiles/parserHTML.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parserHTML.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tjohnnie/HTTP/main.cpp -o CMakeFiles/parserHTML.dir/main.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tjohnnie/Desktop/HTTP/main.cpp -o CMakeFiles/parserHTML.dir/main.cpp.s
 
 CMakeFiles/parserHTML.dir/Request.cpp.o: CMakeFiles/parserHTML.dir/flags.make
 CMakeFiles/parserHTML.dir/Request.cpp.o: ../Request.cpp
 CMakeFiles/parserHTML.dir/Request.cpp.o: CMakeFiles/parserHTML.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/tjohnnie/HTTP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/parserHTML.dir/Request.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/parserHTML.dir/Request.cpp.o -MF CMakeFiles/parserHTML.dir/Request.cpp.o.d -o CMakeFiles/parserHTML.dir/Request.cpp.o -c /Users/tjohnnie/HTTP/Request.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/parserHTML.dir/Request.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/parserHTML.dir/Request.cpp.o -MF CMakeFiles/parserHTML.dir/Request.cpp.o.d -o CMakeFiles/parserHTML.dir/Request.cpp.o -c /Users/tjohnnie/Desktop/HTTP/Request.cpp
 
 CMakeFiles/parserHTML.dir/Request.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/parserHTML.dir/Request.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tjohnnie/HTTP/Request.cpp > CMakeFiles/parserHTML.dir/Request.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tjohnnie/Desktop/HTTP/Request.cpp > CMakeFiles/parserHTML.dir/Request.cpp.i
 
 CMakeFiles/parserHTML.dir/Request.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parserHTML.dir/Request.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tjohnnie/HTTP/Request.cpp -o CMakeFiles/parserHTML.dir/Request.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tjohnnie/Desktop/HTTP/Request.cpp -o CMakeFiles/parserHTML.dir/Request.cpp.s
 
 CMakeFiles/parserHTML.dir/Response.cpp.o: CMakeFiles/parserHTML.dir/flags.make
 CMakeFiles/parserHTML.dir/Response.cpp.o: ../Response.cpp
 CMakeFiles/parserHTML.dir/Response.cpp.o: CMakeFiles/parserHTML.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/tjohnnie/HTTP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/parserHTML.dir/Response.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/parserHTML.dir/Response.cpp.o -MF CMakeFiles/parserHTML.dir/Response.cpp.o.d -o CMakeFiles/parserHTML.dir/Response.cpp.o -c /Users/tjohnnie/HTTP/Response.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/parserHTML.dir/Response.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/parserHTML.dir/Response.cpp.o -MF CMakeFiles/parserHTML.dir/Response.cpp.o.d -o CMakeFiles/parserHTML.dir/Response.cpp.o -c /Users/tjohnnie/Desktop/HTTP/Response.cpp
 
 CMakeFiles/parserHTML.dir/Response.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/parserHTML.dir/Response.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tjohnnie/HTTP/Response.cpp > CMakeFiles/parserHTML.dir/Response.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tjohnnie/Desktop/HTTP/Response.cpp > CMakeFiles/parserHTML.dir/Response.cpp.i
 
 CMakeFiles/parserHTML.dir/Response.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/parserHTML.dir/Response.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tjohnnie/HTTP/Response.cpp -o CMakeFiles/parserHTML.dir/Response.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tjohnnie/Desktop/HTTP/Response.cpp -o CMakeFiles/parserHTML.dir/Response.cpp.s
 
 # Object files for target parserHTML
 parserHTML_OBJECTS = \
@@ -125,7 +125,7 @@ parserHTML: CMakeFiles/parserHTML.dir/Request.cpp.o
 parserHTML: CMakeFiles/parserHTML.dir/Response.cpp.o
 parserHTML: CMakeFiles/parserHTML.dir/build.make
 parserHTML: CMakeFiles/parserHTML.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/tjohnnie/HTTP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable parserHTML"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable parserHTML"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/parserHTML.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -137,6 +137,6 @@ CMakeFiles/parserHTML.dir/clean:
 .PHONY : CMakeFiles/parserHTML.dir/clean
 
 CMakeFiles/parserHTML.dir/depend:
-	cd /Users/tjohnnie/HTTP/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/tjohnnie/HTTP /Users/tjohnnie/HTTP /Users/tjohnnie/HTTP/cmake-build-debug /Users/tjohnnie/HTTP/cmake-build-debug /Users/tjohnnie/HTTP/cmake-build-debug/CMakeFiles/parserHTML.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/tjohnnie/Desktop/HTTP/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/tjohnnie/Desktop/HTTP /Users/tjohnnie/Desktop/HTTP /Users/tjohnnie/Desktop/HTTP/cmake-build-debug /Users/tjohnnie/Desktop/HTTP/cmake-build-debug /Users/tjohnnie/Desktop/HTTP/cmake-build-debug/CMakeFiles/parserHTML.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/parserHTML.dir/depend
 

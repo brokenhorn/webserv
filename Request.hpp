@@ -20,7 +20,6 @@ private:
 	int											_code;
 
 	Request();
-	Request(Request const &other);
 
 	void										takeMethod(std::string line);
 	void										takeProtocolVersion(std::string line);
@@ -38,6 +37,7 @@ private:
 public:
 	Request(std::string const &str);
 	~Request();
+	Request(Request const &other);
 	Request &operator =(Request const &other);
 
 	const std::string							&getMethod() const;

@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/tjohnnie/HTTP/cmake-build-debug"/>
+				<Option working_dir="/Users/tjohnnie/Desktop/HTTP/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/tjohnnie/HTTP/cmake-build-debug"/>
+				<Option working_dir="/Users/tjohnnie/Desktop/HTTP/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/tjohnnie/HTTP/cmake-build-debug"/>
+				<Option working_dir="/Users/tjohnnie/Desktop/HTTP/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="parserHTML">
-				<Option output="/Users/tjohnnie/HTTP/cmake-build-debug/parserHTML" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/tjohnnie/HTTP/cmake-build-debug"/>
+				<Option output="/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/parserHTML" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/tjohnnie/Desktop/HTTP/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -52,15 +52,15 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 parserHTML"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 parserHTML"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="parserHTML/fast">
-				<Option output="/Users/tjohnnie/HTTP/cmake-build-debug/parserHTML" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/tjohnnie/HTTP/cmake-build-debug"/>
+				<Option output="/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/parserHTML" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/tjohnnie/Desktop/HTTP/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -73,29 +73,29 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 parserHTML/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 parserHTML/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/tjohnnie/Desktop/HTTP/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/tjohnnie/HTTP/Request.cpp">
+		<Unit filename="/Users/tjohnnie/Desktop/HTTP/Request.cpp">
 			<Option target="parserHTML"/>
 		</Unit>
-		<Unit filename="/Users/tjohnnie/HTTP/Request.hpp">
+		<Unit filename="/Users/tjohnnie/Desktop/HTTP/Request.hpp">
 			<Option target="parserHTML"/>
 		</Unit>
-		<Unit filename="/Users/tjohnnie/HTTP/Response.cpp">
+		<Unit filename="/Users/tjohnnie/Desktop/HTTP/Response.cpp">
 			<Option target="parserHTML"/>
 		</Unit>
-		<Unit filename="/Users/tjohnnie/HTTP/Response.hpp">
+		<Unit filename="/Users/tjohnnie/Desktop/HTTP/Response.hpp">
 			<Option target="parserHTML"/>
 		</Unit>
-		<Unit filename="/Users/tjohnnie/HTTP/main.cpp">
+		<Unit filename="/Users/tjohnnie/Desktop/HTTP/main.cpp">
 			<Option target="parserHTML"/>
 		</Unit>
-		<Unit filename="/Users/tjohnnie/HTTP/CMakeLists.txt">
+		<Unit filename="/Users/tjohnnie/Desktop/HTTP/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

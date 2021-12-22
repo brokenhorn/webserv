@@ -1,4 +1,4 @@
-#include "Request.hpp"
+#include "Response.hpp"
 
 int main()
 {
@@ -23,7 +23,12 @@ int main()
 							   "Sec-Fetch-Dest: document\r\n"
 							   "Accept-Encoding: gzip, deflate, br\r\n"
 							   "Accept-Language: en-US,en;q=0.9\r\n\r\n";
-	Request request(line1);
+	Request		request(line1);
+	Serv		serv;
+	Location	location;
+	location.location = "/";
+	serv.locations.push_back(location);
+	Response	response(request, serv);
 	std::cout << request.getCode() << std::endl << request.getPort() << std::endl;
 	return 0;
 }

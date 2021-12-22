@@ -37,7 +37,7 @@ const std::string	&Request::getBody() const { return this->_body; }
 const std::string	&Request::getLine() const { return this->_line; }
 int		Request::getCode() const { return this->_code; }
 
-Request&	Request::operator =(Request const &other)
+Request		&Request::operator =(Request const &other)
 {
 	this->_port = other.getPort();
 	this->_param = other.getParam();
@@ -49,6 +49,11 @@ Request&	Request::operator =(Request const &other)
 	this->_line = other.getLine();
 
 	return *this;
+}
+
+Request::Request(Request const &other)
+{
+	*this = other;
 }
 
 void	Request::takeMethod(std::string line)
@@ -162,11 +167,7 @@ bool	Request::checkMethod()
 
 	array.push_back("GET");
 	array.push_back("POST");
-	//array.push_back("PUT");
-	//array.push_back("HEAD");
 	array.push_back("DELETE");
-	//array.push_back("OPTIONS");
-	//array.push_back("TRACE");
 
 	if (std::find(array.begin(), array.end(), this->_method) == array.end())
 		return 0;
@@ -177,5 +178,6 @@ bool	Request::checkProtocolVersion()
 {
 	if (this->_protocol_version == "HTTP/1.1")
 		return 1;
+	this->_code = 505;
 	return 0;
 }
