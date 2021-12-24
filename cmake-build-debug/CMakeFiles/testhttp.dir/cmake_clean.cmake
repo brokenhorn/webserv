@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/testhttp.dir/Request.cpp.o"
+  "CMakeFiles/testhttp.dir/Cgi.cpp.o"
+  "CMakeFiles/testhttp.dir/HTTP/Request.cpp.o"
+  "CMakeFiles/testhttp.dir/HTTP/Response.cpp.o"
   "CMakeFiles/testhttp.dir/Server.cpp.o"
   "CMakeFiles/testhttp.dir/ServerUnit.cpp.o"
   "CMakeFiles/testhttp.dir/parser.cpp.o"

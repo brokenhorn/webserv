@@ -6,15 +6,51 @@
 
 #IncludeRegexTransform: 
 
-/Users/vmaricru/Desktop/testhttp/Request.hpp
+/Users/vmaricru/Desktop/testhttp/Cgi.hpp
+HTTP/Request.hpp
+/Users/vmaricru/Desktop/testhttp/HTTP/Request.hpp
+parser.hpp
+/Users/vmaricru/Desktop/testhttp/parser.hpp
+unistd.h
+-
+stdlib.h
+-
+stdio.h
+-
+fstream
+-
+sys/fcntl.h
+-
+
+/Users/vmaricru/Desktop/testhttp/HTTP/Request.hpp
 iostream
-/Users/vmaricru/Desktop/testhttp/iostream
+/Users/vmaricru/Desktop/testhttp/HTTP/iostream
 string
-/Users/vmaricru/Desktop/testhttp/string
+/Users/vmaricru/Desktop/testhttp/HTTP/string
+algorithm
+/Users/vmaricru/Desktop/testhttp/HTTP/algorithm
 map
-/Users/vmaricru/Desktop/testhttp/map
+/Users/vmaricru/Desktop/testhttp/HTTP/map
 vector
-/Users/vmaricru/Desktop/testhttp/vector
+/Users/vmaricru/Desktop/testhttp/HTTP/vector
+
+/Users/vmaricru/Desktop/testhttp/HTTP/Response.hpp
+../Server.hpp
+/Users/vmaricru/Desktop/testhttp/Server.hpp
+Request.hpp
+/Users/vmaricru/Desktop/testhttp/HTTP/Request.hpp
+functional
+/Users/vmaricru/Desktop/testhttp/HTTP/functional
+sstream
+/Users/vmaricru/Desktop/testhttp/HTTP/sstream
+sys/stat.h
+/Users/vmaricru/Desktop/testhttp/HTTP/sys/stat.h
+dirent.h
+/Users/vmaricru/Desktop/testhttp/HTTP/dirent.h
+../Cgi.hpp
+/Users/vmaricru/Desktop/testhttp/Cgi.hpp
+../parser.hpp
+/Users/vmaricru/Desktop/testhttp/parser.hpp
 
 /Users/vmaricru/Desktop/testhttp/Server.cpp
 Server.hpp
@@ -51,8 +87,10 @@ parser.hpp
 /Users/vmaricru/Desktop/testhttp/parser.hpp
 ServerUnit.hpp
 /Users/vmaricru/Desktop/testhttp/ServerUnit.hpp
-Request.hpp
-/Users/vmaricru/Desktop/testhttp/Request.hpp
+HTTP/Request.hpp
+/Users/vmaricru/Desktop/testhttp/HTTP/Request.hpp
+HTTP/Response.hpp
+/Users/vmaricru/Desktop/testhttp/HTTP/Response.hpp
 
 /Users/vmaricru/Desktop/testhttp/ServerUnit.hpp
 sys/types.h
@@ -81,6 +119,8 @@ iostream
 -
 vector
 /Users/vmaricru/Desktop/testhttp/vector
+parser.hpp
+/Users/vmaricru/Desktop/testhttp/parser.hpp
 
 /Users/vmaricru/Desktop/testhttp/parser.hpp
 iostream
@@ -93,8 +133,6 @@ string.h
 -
 vector
 -
-
-/Users/vmaricru/Desktop/testhttp/start.cpp
-Server.hpp
-/Users/vmaricru/Desktop/testhttp/Server.hpp
+parser.hpp
+/Users/vmaricru/Desktop/testhttp/parser.hpp
 

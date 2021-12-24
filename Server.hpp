@@ -26,7 +26,8 @@
 #define FALSE            0
 
 #include "ServerUnit.hpp"
-#include "Request.hpp"
+#include "HTTP/Request.hpp"
+#include "HTTP/Response.hpp"
 
 class Server {
 private:

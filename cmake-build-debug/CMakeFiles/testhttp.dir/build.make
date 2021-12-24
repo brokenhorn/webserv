@@ -105,22 +105,9 @@ CMakeFiles/testhttp.dir/ServerUnit.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testhttp.dir/ServerUnit.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vmaricru/Desktop/testhttp/ServerUnit.cpp -o CMakeFiles/testhttp.dir/ServerUnit.cpp.s
 
-CMakeFiles/testhttp.dir/Request.cpp.o: CMakeFiles/testhttp.dir/flags.make
-CMakeFiles/testhttp.dir/Request.cpp.o: ../Request.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vmaricru/Desktop/testhttp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/testhttp.dir/Request.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/testhttp.dir/Request.cpp.o -c /Users/vmaricru/Desktop/testhttp/Request.cpp
-
-CMakeFiles/testhttp.dir/Request.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/testhttp.dir/Request.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/vmaricru/Desktop/testhttp/Request.cpp > CMakeFiles/testhttp.dir/Request.cpp.i
-
-CMakeFiles/testhttp.dir/Request.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testhttp.dir/Request.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vmaricru/Desktop/testhttp/Request.cpp -o CMakeFiles/testhttp.dir/Request.cpp.s
-
 CMakeFiles/testhttp.dir/parser.cpp.o: CMakeFiles/testhttp.dir/flags.make
 CMakeFiles/testhttp.dir/parser.cpp.o: ../parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vmaricru/Desktop/testhttp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/testhttp.dir/parser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vmaricru/Desktop/testhttp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/testhttp.dir/parser.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/testhttp.dir/parser.cpp.o -c /Users/vmaricru/Desktop/testhttp/parser.cpp
 
 CMakeFiles/testhttp.dir/parser.cpp.i: cmake_force
@@ -131,13 +118,54 @@ CMakeFiles/testhttp.dir/parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testhttp.dir/parser.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vmaricru/Desktop/testhttp/parser.cpp -o CMakeFiles/testhttp.dir/parser.cpp.s
 
+CMakeFiles/testhttp.dir/Cgi.cpp.o: CMakeFiles/testhttp.dir/flags.make
+CMakeFiles/testhttp.dir/Cgi.cpp.o: ../Cgi.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vmaricru/Desktop/testhttp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/testhttp.dir/Cgi.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/testhttp.dir/Cgi.cpp.o -c /Users/vmaricru/Desktop/testhttp/Cgi.cpp
+
+CMakeFiles/testhttp.dir/Cgi.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/testhttp.dir/Cgi.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/vmaricru/Desktop/testhttp/Cgi.cpp > CMakeFiles/testhttp.dir/Cgi.cpp.i
+
+CMakeFiles/testhttp.dir/Cgi.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testhttp.dir/Cgi.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vmaricru/Desktop/testhttp/Cgi.cpp -o CMakeFiles/testhttp.dir/Cgi.cpp.s
+
+CMakeFiles/testhttp.dir/HTTP/Response.cpp.o: CMakeFiles/testhttp.dir/flags.make
+CMakeFiles/testhttp.dir/HTTP/Response.cpp.o: ../HTTP/Response.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vmaricru/Desktop/testhttp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/testhttp.dir/HTTP/Response.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/testhttp.dir/HTTP/Response.cpp.o -c /Users/vmaricru/Desktop/testhttp/HTTP/Response.cpp
+
+CMakeFiles/testhttp.dir/HTTP/Response.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/testhttp.dir/HTTP/Response.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/vmaricru/Desktop/testhttp/HTTP/Response.cpp > CMakeFiles/testhttp.dir/HTTP/Response.cpp.i
+
+CMakeFiles/testhttp.dir/HTTP/Response.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testhttp.dir/HTTP/Response.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vmaricru/Desktop/testhttp/HTTP/Response.cpp -o CMakeFiles/testhttp.dir/HTTP/Response.cpp.s
+
+CMakeFiles/testhttp.dir/HTTP/Request.cpp.o: CMakeFiles/testhttp.dir/flags.make
+CMakeFiles/testhttp.dir/HTTP/Request.cpp.o: ../HTTP/Request.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/vmaricru/Desktop/testhttp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/testhttp.dir/HTTP/Request.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/testhttp.dir/HTTP/Request.cpp.o -c /Users/vmaricru/Desktop/testhttp/HTTP/Request.cpp
+
+CMakeFiles/testhttp.dir/HTTP/Request.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/testhttp.dir/HTTP/Request.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/vmaricru/Desktop/testhttp/HTTP/Request.cpp > CMakeFiles/testhttp.dir/HTTP/Request.cpp.i
+
+CMakeFiles/testhttp.dir/HTTP/Request.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/testhttp.dir/HTTP/Request.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/vmaricru/Desktop/testhttp/HTTP/Request.cpp -o CMakeFiles/testhttp.dir/HTTP/Request.cpp.s
+
 # Object files for target testhttp
 testhttp_OBJECTS = \
 "CMakeFiles/testhttp.dir/start.cpp.o" \
 "CMakeFiles/testhttp.dir/Server.cpp.o" \
 "CMakeFiles/testhttp.dir/ServerUnit.cpp.o" \
-"CMakeFiles/testhttp.dir/Request.cpp.o" \
-"CMakeFiles/testhttp.dir/parser.cpp.o"
+"CMakeFiles/testhttp.dir/parser.cpp.o" \
+"CMakeFiles/testhttp.dir/Cgi.cpp.o" \
+"CMakeFiles/testhttp.dir/HTTP/Response.cpp.o" \
+"CMakeFiles/testhttp.dir/HTTP/Request.cpp.o"
 
 # External object files for target testhttp
 testhttp_EXTERNAL_OBJECTS =
@@ -145,11 +173,13 @@ testhttp_EXTERNAL_OBJECTS =
 testhttp: CMakeFiles/testhttp.dir/start.cpp.o
 testhttp: CMakeFiles/testhttp.dir/Server.cpp.o
 testhttp: CMakeFiles/testhttp.dir/ServerUnit.cpp.o
-testhttp: CMakeFiles/testhttp.dir/Request.cpp.o
 testhttp: CMakeFiles/testhttp.dir/parser.cpp.o
+testhttp: CMakeFiles/testhttp.dir/Cgi.cpp.o
+testhttp: CMakeFiles/testhttp.dir/HTTP/Response.cpp.o
+testhttp: CMakeFiles/testhttp.dir/HTTP/Request.cpp.o
 testhttp: CMakeFiles/testhttp.dir/build.make
 testhttp: CMakeFiles/testhttp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/vmaricru/Desktop/testhttp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable testhttp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/vmaricru/Desktop/testhttp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable testhttp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/testhttp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

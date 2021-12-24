@@ -20,7 +20,7 @@ int main(int argc, __unused char **argv)
 		{
 			try
 			{
-				ServerUnit unit = ServerUnit(servers_conf[j].port);
+				ServerUnit unit = ServerUnit(servers_conf[j].port, servers_conf[j]);
 				sr.addServerUnit(unit);
 			}
 			catch (std::exception &err){}

@@ -5,7 +5,7 @@
 #ifndef TESTHTTP_CGI_HPP
 #define TESTHTTP_CGI_HPP
 
-#include "Request.hpp"
+#include "HTTP/Request.hpp"
 #include "parser.hpp"
 #include <unistd.h>
 #include <stdlib.h>

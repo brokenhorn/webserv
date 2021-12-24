@@ -85,11 +85,30 @@ int Server::poll_process()
 				{
 					break;
 				}
-
+//				Request parse(tmp->getRequestStr());
+//				Response resp(parse, tmp->getConf());
 				Request parse(tmp->getRequestStr());
+
+				if (!tmp->getConf().redirect.empty())
+				{
+					for (std::vector<ServerUnit>::iterator unit = servers.begin(); unit < servers.end(); ++unit)
+					{
+						if (unit->getPort() == std::stoi(tmp->getConf().redirect.substr(tmp->getConf().redirect.find(":") + 1)))
+						{
+							Response resp(parse, unit->getConf());
+							tmp->setResponse(resp.getResponse());
+							break;
+						}
+					}
+				}
+				else
+				{
+					Response resp(parse, tmp->getConf());
+					tmp->setResponse(resp.getResponse());
+				}
 				//**Response answer(parse);**//
 				//** answer = html-parse(unit->_request**//
-
+				//tmp->setResponse(resp.getResponse());
 				if (send_process(*tmp) == -1)
 					break;
 			} while (TRUE); //мб без цикла
@@ -205,26 +224,26 @@ int Server::send_process(ServerUnit &unit)
 {
 	int sended_bytes = 0;
 
-	std::stringstream response_body;
-	std::stringstream sresponse;
-	response_body << "<title>Test C++ HTTP Server</title>\n"
-				   << "<h1>Test page</h1>\n"
-				   << "<p>This is body of the test page...</p>\n"
-				   << "<h2>Request headers</h2>\n"
-				   << "<pre>" << buffer << "</pre>\n"
-				   << "<em><small>Test C++ Http Server</small></em>\n";
-
-	// Формируем весь ответ вместе с заголовками
-	sresponse << "HTTP/1.1 200 OK\r\n"
-			 << "Version: HTTP/1.1\r\n"
-			 << "Content-Type: text/html; charset=utf-8\r\n"
-			 << "Content-Length: " << response_body.str().length()
-			 << "\r\n\r\n"
-			 << response_body.str();
-//	//answer = response;
+//	std::stringstream response_body;
+//	std::stringstream sresponse;
+//	response_body << "<title>Test C++ HTTP Server</title>\n"
+//				   << "<h1>Test page</h1>\n"
+//				   << "<p>This is body of the test page...</p>\n"
+//				   << "<h2>Request headers</h2>\n"
+//				   << "<pre>" << buffer << "</pre>\n"
+//				   << "<em><small>Test C++ Http Server</small></em>\n";
+//
+//	// Формируем весь ответ вместе с заголовками
+//	sresponse << "HTTP/1.1 200 OK\r\n"
+//			 << "Version: HTTP/1.1\r\n"
+//			 << "Content-Type: text/html; charset=utf-8\r\n"
+//			 << "Content-Length: " << response_body.str().length()
+//			 << "\r\n\r\n"
+//			 << response_body.str();
+////	//answer = response;
 	do
 	{
-		rc = send(fds[i].fd, sresponse.str().c_str(), sresponse.str().length(), 0);
+		rc = send(fds[i].fd, unit.getResponse().c_str(), unit.getResponse().length(), 0);
 		sended_bytes += rc;
 		if (rc < 0)
 		{
@@ -232,7 +251,7 @@ int Server::send_process(ServerUnit &unit)
 			close_conn = TRUE;
 			return (-1);
 		}
-	} while (sended_bytes != sresponse.str().size());
+	} while (sended_bytes != unit.getResponse().size());
 	return (1);
 }
 

@@ -8,10 +8,10 @@
 ServerUnit::ServerUnit()
 {}
 
-ServerUnit::ServerUnit(int port)
+ServerUnit::ServerUnit(int port, Serv conf)
 {
 	this->port = port;
-
+	this->conf = conf;
 	int rc;
 	int on;
 
@@ -70,9 +70,11 @@ ServerUnit &ServerUnit::operator=(ServerUnit const  &src)
 	if (this != &src)
 	{
 		listen_socketFD = src.listen_socketFD;
-	//	std::copy(src.client_socket.begin(), src.client_socket.end(), client_socket);
+		//std::copy(src.client_socket.begin(), src.client_socket.end(), client_socket);
+	//	client_socket = src.client_socket;
 		port = src.port;
 		_request = src._request;
+		conf = src.conf;
 	}
 	return *this;
 }
@@ -110,10 +112,31 @@ ServerUnit::ServerUnit(const ServerUnit &src)
 	listen_socketFD = src.listen_socketFD;
 	//client_socket = src.client_socket; //Дописать
 	port = src.port;
+	conf = src.conf;
 	_request = src._request;
 }
 
 std::vector<int> ServerUnit::getClientFD()
 {
 	return (client_socket);
+}
+
+Serv ServerUnit::getConf()
+{
+	return conf;
+}
+
+void ServerUnit::setResponse(std::string resp)
+{
+	_response = resp;
+}
+
+std::string ServerUnit::getResponse()
+{
+	return _response;
+}
+
+int ServerUnit::getPort()
+{
+	return port;
 }

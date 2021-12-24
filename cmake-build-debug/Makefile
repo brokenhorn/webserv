@@ -129,29 +129,77 @@ testhttp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/build
 .PHONY : testhttp/fast
 
-Request.o: Request.cpp.o
-.PHONY : Request.o
+Cgi.o: Cgi.cpp.o
+.PHONY : Cgi.o
 
 # target to build an object file
-Request.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/Request.cpp.o
-.PHONY : Request.cpp.o
+Cgi.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/Cgi.cpp.o
+.PHONY : Cgi.cpp.o
 
-Request.i: Request.cpp.i
-.PHONY : Request.i
+Cgi.i: Cgi.cpp.i
+.PHONY : Cgi.i
 
 # target to preprocess a source file
-Request.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/Request.cpp.i
-.PHONY : Request.cpp.i
+Cgi.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/Cgi.cpp.i
+.PHONY : Cgi.cpp.i
 
-Request.s: Request.cpp.s
-.PHONY : Request.s
+Cgi.s: Cgi.cpp.s
+.PHONY : Cgi.s
 
 # target to generate assembly for a file
-Request.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/Request.cpp.s
-.PHONY : Request.cpp.s
+Cgi.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/Cgi.cpp.s
+.PHONY : Cgi.cpp.s
+
+HTTP/Request.o: HTTP/Request.cpp.o
+.PHONY : HTTP/Request.o
+
+# target to build an object file
+HTTP/Request.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/HTTP/Request.cpp.o
+.PHONY : HTTP/Request.cpp.o
+
+HTTP/Request.i: HTTP/Request.cpp.i
+.PHONY : HTTP/Request.i
+
+# target to preprocess a source file
+HTTP/Request.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/HTTP/Request.cpp.i
+.PHONY : HTTP/Request.cpp.i
+
+HTTP/Request.s: HTTP/Request.cpp.s
+.PHONY : HTTP/Request.s
+
+# target to generate assembly for a file
+HTTP/Request.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/HTTP/Request.cpp.s
+.PHONY : HTTP/Request.cpp.s
+
+HTTP/Response.o: HTTP/Response.cpp.o
+.PHONY : HTTP/Response.o
+
+# target to build an object file
+HTTP/Response.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/HTTP/Response.cpp.o
+.PHONY : HTTP/Response.cpp.o
+
+HTTP/Response.i: HTTP/Response.cpp.i
+.PHONY : HTTP/Response.i
+
+# target to preprocess a source file
+HTTP/Response.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/HTTP/Response.cpp.i
+.PHONY : HTTP/Response.cpp.i
+
+HTTP/Response.s: HTTP/Response.cpp.s
+.PHONY : HTTP/Response.s
+
+# target to generate assembly for a file
+HTTP/Response.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testhttp.dir/build.make CMakeFiles/testhttp.dir/HTTP/Response.cpp.s
+.PHONY : HTTP/Response.cpp.s
 
 Server.o: Server.cpp.o
 .PHONY : Server.o
@@ -258,9 +306,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... testhttp"
-	@echo "... Request.o"
-	@echo "... Request.i"
-	@echo "... Request.s"
+	@echo "... Cgi.o"
+	@echo "... Cgi.i"
+	@echo "... Cgi.s"
+	@echo "... HTTP/Request.o"
+	@echo "... HTTP/Request.i"
+	@echo "... HTTP/Request.s"
+	@echo "... HTTP/Response.o"
+	@echo "... HTTP/Response.i"
+	@echo "... HTTP/Response.s"
 	@echo "... Server.o"
 	@echo "... Server.i"
 	@echo "... Server.s"

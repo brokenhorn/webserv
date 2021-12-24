@@ -80,13 +80,22 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/vmaricru/Desktop/testhttp/Cgi.cpp">
+			<Option target="testhttp"/>
+		</Unit>
 		<Unit filename="/Users/vmaricru/Desktop/testhttp/Cgi.hpp">
 			<Option target="testhttp"/>
 		</Unit>
-		<Unit filename="/Users/vmaricru/Desktop/testhttp/Request.cpp">
+		<Unit filename="/Users/vmaricru/Desktop/testhttp/HTTP/Request.cpp">
 			<Option target="testhttp"/>
 		</Unit>
-		<Unit filename="/Users/vmaricru/Desktop/testhttp/Request.hpp">
+		<Unit filename="/Users/vmaricru/Desktop/testhttp/HTTP/Request.hpp">
+			<Option target="testhttp"/>
+		</Unit>
+		<Unit filename="/Users/vmaricru/Desktop/testhttp/HTTP/Response.cpp">
+			<Option target="testhttp"/>
+		</Unit>
+		<Unit filename="/Users/vmaricru/Desktop/testhttp/HTTP/Response.hpp">
 			<Option target="testhttp"/>
 		</Unit>
 		<Unit filename="/Users/vmaricru/Desktop/testhttp/Server.cpp">

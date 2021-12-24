@@ -18,19 +18,22 @@
 #include <sys/ioctl.h>
 #include <iostream>
 #include "vector"
+#include "parser.hpp"
+
 
 class ServerUnit {
 private:
 	int port;
+	Serv conf;
 	struct sockaddr_in6 stSockAddr;
 	int listen_socketFD;
 	std::vector<int> client_socket;
 	std::string _request;
-
+	std::string _response;
 
 public:
 	ServerUnit();
-	ServerUnit(int port);
+	ServerUnit(int port, Serv conf);
 	~ServerUnit();
 	ServerUnit(ServerUnit const & src);
 	ServerUnit &operator=(ServerUnit const  &src);
@@ -42,6 +45,10 @@ public:
 	void cleanRequestStr();
 	void addRequestStr(std::string str);
 	std::string getRequestStr();
+	void setResponse(std::string resp);
+	std::string getResponse();
+	Serv getConf();
+	int getPort();
 };
 
 

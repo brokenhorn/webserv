@@ -8,7 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/vmaricru/Desktop/testhttp/Request.cpp" "/Users/vmaricru/Desktop/testhttp/cmake-build-debug/CMakeFiles/testhttp.dir/Request.cpp.o"
+  "/Users/vmaricru/Desktop/testhttp/Cgi.cpp" "/Users/vmaricru/Desktop/testhttp/cmake-build-debug/CMakeFiles/testhttp.dir/Cgi.cpp.o"
+  "/Users/vmaricru/Desktop/testhttp/HTTP/Request.cpp" "/Users/vmaricru/Desktop/testhttp/cmake-build-debug/CMakeFiles/testhttp.dir/HTTP/Request.cpp.o"
+  "/Users/vmaricru/Desktop/testhttp/HTTP/Response.cpp" "/Users/vmaricru/Desktop/testhttp/cmake-build-debug/CMakeFiles/testhttp.dir/HTTP/Response.cpp.o"
   "/Users/vmaricru/Desktop/testhttp/Server.cpp" "/Users/vmaricru/Desktop/testhttp/cmake-build-debug/CMakeFiles/testhttp.dir/Server.cpp.o"
   "/Users/vmaricru/Desktop/testhttp/ServerUnit.cpp" "/Users/vmaricru/Desktop/testhttp/cmake-build-debug/CMakeFiles/testhttp.dir/ServerUnit.cpp.o"
   "/Users/vmaricru/Desktop/testhttp/parser.cpp" "/Users/vmaricru/Desktop/testhttp/cmake-build-debug/CMakeFiles/testhttp.dir/parser.cpp.o"
