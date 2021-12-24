@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/vmaricru/Desktop/testhttp/Cgi.hpp">
+			<Option target="testhttp"/>
+		</Unit>
 		<Unit filename="/Users/vmaricru/Desktop/testhttp/Request.cpp">
 			<Option target="testhttp"/>
 		</Unit>

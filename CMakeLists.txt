@@ -3,4 +3,4 @@ project(testhttp)
 
 set(CMAKE_CXX_STANDARD 98)
 
-add_executable(testhttp start.cpp Server.hpp Server.cpp ServerUnit.cpp ServerUnit.hpp Request.cpp Request.hpp parser.hpp parser.cpp)
+add_executable(testhttp start.cpp Server.hpp Server.cpp ServerUnit.cpp ServerUnit.hpp Request.cpp Request.hpp parser.hpp parser.cpp Cgi.hpp)
