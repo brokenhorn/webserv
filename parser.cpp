@@ -1,24 +1,5 @@
 #include "parser.hpp"
 
-//struct	Location{
-//	std::string			location;
-//	std::string			index;
-//	std::vector<size_t>	methods;
-//	std::string			root;
-//	bool				autoindex;
-//	int					max_body;
-//	std::string			exec;
-//};
-//
-//struct	Serv{
-//	std::string				ip;
-//	int						port;
-//	std::string				server_name;
-//	std::string				error_page;
-//	std::vector<Location>	locations;
-//	std::string				redirect;
-//};
-
 int num_space(std::string str){
 	int i = 0;
 
@@ -37,7 +18,7 @@ int checker_meth(char *buf){
 	return -1;
 }
 
-bool parse_location(std::string line, bool openServ, bool openLoc, Location &loc){
+void parse_location(std::string line, bool openServ, bool openLoc, Location &loc){
 	int start_f, meth;
 	char *buf, *del;
 	std::string str;
@@ -56,7 +37,7 @@ bool parse_location(std::string line, bool openServ, bool openLoc, Location &loc
 					loc.methods.push_back(meth);
 			}
 		}
-		if ((start_f = line.find("index")) != -1){
+		if ((start_f = line.find("index")) == -1){
 			start_f += num_space(line.substr(start_f + 5));
 			loc.index = line.substr(start_f + 5);
 		}
@@ -65,9 +46,9 @@ bool parse_location(std::string line, bool openServ, bool openLoc, Location &loc
 			loc.root = line.substr(start_f + 4);
 		}
 		if ((start_f = line.find("autoindex")) != -1){
-			if (line.find("on") != -1)
+			if (line.find("on") == line.npos)
 				loc.autoindex = true;
-			else if (line.find("off") != -1)
+			else if (line.find("off") == line.npos)
 				loc.autoindex = false;
 		}
 		if ((start_f = line.find("max_body")) != -1){
@@ -81,7 +62,7 @@ bool parse_location(std::string line, bool openServ, bool openLoc, Location &loc
 	}
 }
 
-bool parse_server(bool isOpen, std::string line, Serv &serv){
+void parse_server(bool isOpen, std::string line, Serv &serv){
 	int start_f, start_port;
 	if (isOpen){
 		if ((start_f = line.find("listen")) != -1){
@@ -126,21 +107,22 @@ std::vector<Serv>	parser(){
 	bool check_loc = CLOS_FIGURE;
 	bool check_serv = CLOS_FIGURE;
 
+	locCleaner(loc);
+	servCleaner(serv);
 	while (getline(conf, line)) {
-		if (line.find("server {") != -1)
+		if (line.find("server {") != line.npos)
 			check_serv = OPEN_FIGURE;
-		else if (line.find("server }") != -1)
+		else if (line.find("server }") != line.npos)
 			check_serv = CLOS_FIGURE;
 		parse_server(check_serv, line, serv);
-		if (line.find("location") != -1)
+		if (line.find("location") != line.npos)
 			check_loc = OPEN_FIGURE;
-		else if (line.find("locend }") != -1)
+		else if (line.find("locend }") != line.npos)
 			check_loc = CLOS_FIGURE;
 		parse_location(line, check_serv, check_loc, loc);
 		if (!check_loc && !loc.methods.empty()){
 			serv.locations.push_back(loc);
 			locCleaner(loc);
-//			loc.methods.erase(loc.methods.begin(), loc.methods.end());
 		}
 		if (!check_serv && !serv.ip.empty()){
 			vServs.push_back(serv);
@@ -149,16 +131,3 @@ std::vector<Serv>	parser(){
 	}
 	return vServs;
 }
-
-//int main() {
-//	std::vector<Serv> servers;
-//	servers = parser();
-//	std::cout <<  servers[0].port << std::endl;
-//	std::cout <<  servers[1].port << std::endl;
-//	return 0;
-//}
-
-//while(*list){
-//
-//	list->next;
-//}

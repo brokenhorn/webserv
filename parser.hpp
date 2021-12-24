@@ -7,7 +7,7 @@
 #include <string.h>
 #include <vector>
 
-//#include "parser.hpp"
+#include "parser.hpp"
 
 #define FILE_OPEN "../conf.conf"
 #define OPEN_FIGURE 1
@@ -40,8 +40,8 @@ struct	Serv{
 
 int num_space(std::string str);
 int checker_meth(char *buf);
-bool parse_location(std::string line, bool openServ, bool openLoc, Location &loc);
-bool parse_server(bool isOpen, std::string line, Serv &serv);
+void parse_location(std::string line, bool openServ, bool openLoc, Location &loc);
+void parse_server(bool isOpen, std::string line, Serv &serv);
 void servCleaner(Serv &serv);
 void locCleaner(Location &loc);
 std::vector<Serv> parser();
