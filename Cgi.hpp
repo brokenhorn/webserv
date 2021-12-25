@@ -5,7 +5,7 @@
 #ifndef TESTHTTP_CGI_HPP
 #define TESTHTTP_CGI_HPP
 
-#include "HTTP/Request.hpp"
+#include "HTTP//Request.hpp"
 #include "parser.hpp"
 #include <unistd.h>
 #include <stdlib.h>
@@ -14,7 +14,7 @@
 #include <sys/fcntl.h>
 
 char **envp_creator(Request *req, Location loc);
-bool		restore_fd_and_close(int pipe[2], int save[2]);
+bool		reclose(int pipe[2], int save[2]);
 bool cgi(Request *req, Location loc);
 
 #endif //TESTHTTP_CGI_HPP

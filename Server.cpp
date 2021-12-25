@@ -189,15 +189,16 @@ int Server::read_process(ServerUnit &unit)
 			return (1);
 		}
 		len = std::atoi(unit.getRequestStr().substr(unit.getRequestStr().find("Content-Length: ") + 16, 10).c_str());
-		if ((int)unit.getRequestStr().size() >= (len + i  + 4))
-		{
-			close_conn = TRUE;
-			return (-1);
-		}
-		else
-		{
-			return (1);
-		}
+//		if ((int)unit.getRequestStr().size() >= (len + i  + 4))
+//		{
+//			close_conn = TRUE;
+//			return (-1);
+//		}
+//		else
+//		{
+//			return (1);
+//		}
+		return(1);
 	}
 	else
 		continue;
