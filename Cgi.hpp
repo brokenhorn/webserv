@@ -11,10 +11,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <fstream>
+#include <iostream>
 #include <sys/fcntl.h>
 
 char **envp_creator(Request *req, Location loc);
-bool		reclose(int pipe[2], int save[2]);
+bool		reclose(int tmp, int save1, char **env);
 bool cgi(Request *req, Location loc);
+std::string stringConverter(std::string str);
 
 #endif //TESTHTTP_CGI_HPP

@@ -24,6 +24,12 @@ Server::~Server()
 
 int Server::poll_process()
 {
+//	int l = 0;
+//	while(fds[l].fd > 0)
+//	{
+//		fcntl(fds[l].fd, F_SETFL, O_NONBLOCK);
+//		l++;
+//	}
 	rc = poll(fds, nfds, timeout); //возможно отрицательное число
 
 	if (rc < 0)
@@ -129,6 +135,8 @@ int Server::accept_process(ServerUnit &unit)
 	do
 	{
 		tmp = accept(fds[i].fd, NULL, NULL);
+		if(tmp > -1)
+			fcntl(tmp, F_SETFL, O_NONBLOCK);
 		std::cout << "Doing accept..."  << tmp << std::endl; // потом убрать?
 		if (tmp < 0)
 		{
@@ -225,27 +233,11 @@ int Server::send_process(ServerUnit &unit)
 {
 	int sended_bytes = 0;
 
-//	std::stringstream response_body;
-//	std::stringstream sresponse;
-//	response_body << "<title>Test C++ HTTP Server</title>\n"
-//				   << "<h1>Test page</h1>\n"
-//				   << "<p>This is body of the test page...</p>\n"
-//				   << "<h2>Request headers</h2>\n"
-//				   << "<pre>" << buffer << "</pre>\n"
-//				   << "<em><small>Test C++ Http Server</small></em>\n";
-//
-//	// Формируем весь ответ вместе с заголовками
-//	sresponse << "HTTP/1.1 200 OK\r\n"
-//			 << "Version: HTTP/1.1\r\n"
-//			 << "Content-Type: text/html; charset=utf-8\r\n"
-//			 << "Content-Length: " << response_body.str().length()
-//			 << "\r\n\r\n"
-//			 << response_body.str();
-////	//answer = response;
 	do
 	{
 		rc = send(fds[i].fd, unit.getResponse().c_str(), unit.getResponse().length(), 0);
-		sended_bytes += rc;
+		if (rc > 0)
+			sended_bytes += rc;
 		if (rc < 0)
 		{
 			perror("  send() failed");
@@ -280,6 +272,7 @@ int Server::preprocess()
 	{
 		fds[q].fd = listen_socketFD[q];
 		fds[q].events = POLLIN;
+		fcntl(fds[q].fd, F_SETFL, O_NONBLOCK);
 		q++;
 	}
 	timeout = (3 * 60 * 1000); //тут еще подумать
