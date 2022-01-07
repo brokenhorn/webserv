@@ -36,6 +36,7 @@ const std::map<std::string, std::string>	&Request::getHeaders() const { return t
 const std::string	&Request::getBody() const { return this->_body; }
 const std::string	&Request::getLine() const { return this->_line; }
 int		Request::getCode() const { return this->_code; }
+void	Request::setBody(std::string const &str) { this->_body = str; }
 
 Request		&Request::operator =(Request const &other)
 {
@@ -133,7 +134,7 @@ void	Request::takeBody(std::string line)
 
 void	Request::takePort()
 {
-	if (this->_headers["Host"] != "" && this->_headers["Host"].find(":") != std::string::npos)
+	if (this->_headers["Host"] != "" && this->_headers["Host"].find(":") != std::string::npos && this->_headers["Host"].substr(this->_headers["Host"].rfind(":") + 1).size() > 0)
 		this->_port = this->_headers["Host"].substr(this->_headers["Host"].rfind(":") + 1);
 }
 
@@ -142,8 +143,6 @@ void	Request::createHeaders()
 	this->_headers["Accept-Charsets"] = "";
 	this->_headers["Accept-Language"] = "";
 	this->_headers["Allow"] = "";
-	this->_headers["Auth-Scheme"] = "";
-	this->_headers["Authorization"] = "";
 	this->_headers["Content-Language"] = "";
 	this->_headers["Content-Length"] = "";
 	this->_headers["Content-Location"] = "";
@@ -153,11 +152,7 @@ void	Request::createHeaders()
 	this->_headers["Last-Modified"] = "";
 	this->_headers["Location"] = "";
 	this->_headers["Referer"] = "";
-	this->_headers["Retry-After"] = "";
-	this->_headers["Server"] = "";
-	this->_headers["Transfer-Encoding"] = "";
 	this->_headers["User-Agent"] = "";
-	this->_headers["Www-Authenticate"] = "";
 	this->_headers["Connection"] = "keep-alive";
 }
 
@@ -168,6 +163,7 @@ bool	Request::checkMethod()
 	array.push_back("GET");
 	array.push_back("POST");
 	array.push_back("DELETE");
+	array.push_back("PUT");
 
 	if (std::find(array.begin(), array.end(), this->_method) == array.end())
 		return 0;

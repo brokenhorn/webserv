@@ -3,6 +3,7 @@
 
 #include "iostream"
 #include "string"
+#include "algorithm"
 #include "map"
 #include "vector"
 
@@ -49,6 +50,7 @@ public:
 	const std::string							&getBody() const;
 	const std::string							&getLine() const;
 	int											getCode() const;
+	void										setBody(std::string const &str);
 };
 
 #endif

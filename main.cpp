@@ -7,14 +7,10 @@ int main()
 							  "Host: local:8080\r\n"
 							  "Content-Length: 19912\r\n\r\n"
 							  "<HTML></HTML>\r\n";
-	std::string		line1 = "GET / HTTP/1.1\r\n"
+	std::string		line1 = "GET /aaa.com?id=1 HTTP/1.1\r\n"
 							   "Host: localhost:8000\r\n"
 							   "Connection: keep-alive\r\n"
 							   "Cache-Control: max-age=0\r\n"
-							   "sec-ch-ua: \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"96\", \"Google Chrome\";v=\"96\"\r\n"
-							   "sec-ch-ua-mobile: ?0\r\n"
-							   "sec-ch-ua-platform: \"macOS\"\r\n"
-							   "Upgrade-Insecure-Requests: 1\r\n"
 							   "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36\r\n"
 							   "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\r\n"
 							   "Sec-Fetch-Site: cross-site\r\n"
@@ -26,9 +22,12 @@ int main()
 	Request		request(line1);
 	Serv		serv;
 	Location	location;
+	bool		cgi;
+
 	location.location = "/";
 	serv.locations.push_back(location);
-	Response	response(request, serv);
-	std::cout << request.getCode() << std::endl << request.getPort() << std::endl;
+	cgi = true;
+	Response	response(request, serv, cgi);
+	std::string	resp = response.getResponse();
 	return 0;
 }
