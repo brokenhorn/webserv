@@ -13,10 +13,11 @@
 #include <fstream>
 #include <iostream>
 #include <sys/fcntl.h>
+#include <string>
 
-char **envp_creator(Request *req, Location loc);
+char **envp_creator(Request *req, Location loc, char *path);
 bool		reclose(int tmp, int save1, char **env);
-bool cgi(Request *req, Location loc);
+bool cgi(Request *req, Location loc, char *path);
 std::string stringConverter(std::string str);
 
 #endif //TESTHTTP_CGI_HPP

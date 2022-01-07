@@ -244,7 +244,7 @@ int Server::send_process(ServerUnit &unit)
 			close_conn = TRUE;
 			return (-1);
 		}
-	} while (sended_bytes != unit.getResponse().size());
+	} while (sended_bytes != int(unit.getResponse().size()));
 	return (1);
 }
 

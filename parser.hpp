@@ -6,6 +6,7 @@
 #include <string>
 #include <string.h>
 #include <vector>
+#include "unistd.h"
 
 #include "parser.hpp"
 
@@ -16,6 +17,7 @@
 # define GET 0
 # define POST 1
 # define DELETE 2
+# define PUT 3
 
 
 struct	Location{
@@ -35,6 +37,7 @@ struct	Serv{
 	std::string				error_page;
 	std::vector<Location>	locations;
 	std::string				redirect;
+	char* 					path;
 };
 
 

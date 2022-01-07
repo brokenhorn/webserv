@@ -4,16 +4,21 @@ CC = clang++
 
 CFLAGS =	-Wall -Wextra -Werror -std=c++98
 
-HEADER =	Request.hpp \
+HEADER =	 HTTP/Request.hpp \
+             HTTP/Response.hpp \
 			parser.hpp \
 			Server.hpp \
 			ServerUnit.hpp \
+			Cgi.hpp \
+
 
 SRC = 	start.cpp \
-		Request.cpp \
         parser.cpp \
         Server.cpp \
         ServerUnit.cpp \
+        HTTP/Request.cpp \
+        HTTP/Response.cpp \
+        Cgi.cpp \
 
 SRCS = $(SRC)
 

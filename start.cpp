@@ -2,19 +2,36 @@
 
 
 
-int main(int argc, __unused char **argv)
+int main(int argc, __unused char **argv, char **envp)
 {
 
 	int j = 0;
-	//int ports[] = {8000, 8001};
 	std::vector<Serv> servers_conf;
+	char* _path = NULL;
+	int z = 0;
+	char *ret;
+	while(envp[z])
+	{
+		if ((ret = strstr(envp[z], "PATH")))
+		{
+			_path = (envp[z]);
+			break;
+		}
+		z++;
+	}
 	servers_conf = parser();
+	z = 0;
+
 	int numberOfServers = servers_conf.size();
 
-	if (argc == 1) // 2
+	while(numberOfServers > z)
+	{
+		servers_conf[z].path = _path;
+		z++;
+	}
+	if (argc == 1)
 	{
 		Server sr = Server();
-												// это заглушка надо будет переписать
 		sr.setConfigs(servers_conf);
 		while (numberOfServers > j)
 		{
@@ -32,7 +49,7 @@ int main(int argc, __unused char **argv)
 		do
 		{
 			if (sr.poll_process() == -1)
-				exit(-1);//переписать под новый класс ***// ПРОВЕРИТЬ ЕСЛИ ОБРУБИТЬ СОЕДИНЕНИЕ ИЗ БРАУЗЕРА
+				exit(-1);
 		} while (sr.get_end_server() == FALSE);
 		if (sr.getCompressArr())
 		{

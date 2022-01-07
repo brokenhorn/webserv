@@ -15,6 +15,8 @@ int checker_meth(char *buf){
 		return POST;
 	if (strstr(buf, "DELETE"))
 		return DELETE;
+	if (strstr(buf, "PUT"))
+		return PUT;
 	return -1;
 }
 
@@ -22,6 +24,9 @@ void parse_location(std::string line, bool openServ, bool openLoc, Location &loc
 	int start_f, meth;
 	char *buf, *del;
 	std::string str;
+	char		tmp[1000];
+
+	getcwd(tmp, 1000);
 	if (openLoc && openServ){
 		if ((start_f = line.find("location")) != -1){
 			loc.location = line.substr(start_f + 9, line.find("{") - (start_f + 9));
@@ -43,7 +48,7 @@ void parse_location(std::string line, bool openServ, bool openLoc, Location &loc
 		}
 		if ((start_f = line.find("root")) != -1){
 			start_f += num_space(line.substr(start_f + 4));
-			loc.root = line.substr(start_f + 4);
+			loc.root = tmp + line.substr(start_f + 4);
 		}
 		if ((start_f = line.find("autoindex")) != -1){
 			if (line.find("on") != line.npos)
@@ -64,6 +69,9 @@ void parse_location(std::string line, bool openServ, bool openLoc, Location &loc
 
 void parse_server(bool isOpen, std::string line, Serv &serv){
 	int start_f, start_port;
+	char		tmp[1000];
+
+	getcwd(tmp, 1000);
 	if (isOpen){
 		if ((start_f = line.find("listen")) != -1){
 			start_port = line.find(":");
@@ -72,7 +80,7 @@ void parse_server(bool isOpen, std::string line, Serv &serv){
 		} else if ((start_f = line.find("return")) != -1){
 			serv.redirect = line.substr(start_f + 7);
 		} else if ((start_f = line.find("error_page")) != -1){
-			serv.error_page = line.substr(start_f + 11);
+			serv.error_page = tmp + line.substr(start_f + 11);
 		} else if ((start_f = line.find("server_name")) != -1){
 			serv.server_name = line.substr(start_f + 12);
 		}
