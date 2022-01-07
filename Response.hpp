@@ -44,7 +44,7 @@ private:
 	void										Delete();
 	void										Put();
 	void										readContent();
-	const std::string							&getAutoIndexPage(std::string &path, std::string const &host, std::string const &port) const;
+	const std::string							getAutoIndexPage(std::string &path, std::string const &host, std::string const &port) const;
 	void										writeContent(std::string const &str);
 	std::string									readHtml(std::string const &path);
 	const std::string							makeDate() const;

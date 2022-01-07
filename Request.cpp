@@ -1,9 +1,9 @@
 #include "Request.hpp"
 
-Request::Request(std::string const &str) : _line(str), _code(200), _body(""), _headers(), _method(""), _path(""), _protocol_version(""), _param(""), _port("80")
+Request::Request(std::string const &str) : _method(""), _protocol_version(""), _path(""), _port("80"), _param(""), _headers(), _body(""), _line(str), _code(200)
 {
-	int		i;
-	int		j;
+	unsigned long		i;
+	unsigned long		j;
 
 	i = _line.find("\r\n");
 	if (i == std::string::npos)
@@ -59,8 +59,8 @@ Request::Request(Request const &other)
 
 void	Request::takeMethod(std::string line)
 {
-	int		i;
-	int		j;
+	unsigned long		i;
+	unsigned long		j;
 
 	i = line.find(" /");
 	if (i == std::string::npos)
@@ -86,7 +86,7 @@ void	Request::takeProtocolVersion(std::string line)
 
 void	Request::takePath(std::string line)
 {
-	int		i;
+	unsigned long		i;
 
 	i = line.find("?");
 	if (i != std::string::npos)
@@ -106,7 +106,7 @@ void	Request::takeParam(std::string line)
 void	Request::takeHeaders(std::string line)
 {
 	int				j;
-	int				n;
+	unsigned long	n;
 	std::string		str;
 
 	str = line;

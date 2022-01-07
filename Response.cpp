@@ -1,19 +1,20 @@
 #include "Response.hpp"
 
-Response::Response(Request const &request, Serv const &conf) : _code(request.getCode()), _protocol_version(request.getProtocol_version()),
-																_serv(conf), _location(), _request(request), _type(""), _response("")
+Response::Response(Request const &request, Serv const &conf) : _request(request), _location(), _serv(conf), _response(""), _type(""), _protocol_version(request.getProtocol_version()), _code(request.getCode())
 {
 	defineMethods();
 	takeLocation();
 	initStatusMessage();
 	fillHeaders();
 
+	if (_request.getMethod() == "PUT")
+		_code = 200;
 	if (_code == 505 || _code == 400 || _code == 404)
 		handleError();
 	else
 	{
 		startMethod();
-		if (_code == 405 || _code == 413 || _code == 404 || _code == 204)
+		if (_code == 405 || _code == 413 || _code == 404)
 			handleError();
 		else
 		{
@@ -67,11 +68,9 @@ void	Response::defineMethods()
 
 void	Response::startMethod()
 {
-	std::map< int, void (Response::*)() > map;
-
 	if (std::find(_location.methods.begin(), _location.methods.end(), _define_methods[_request.getMethod()]) == _location.methods.end())
 		this->_code = 405;
-	else if (_location.max_body != -1 && _request.getBody().size() > _location.max_body)
+	else if (_location.max_body != -1 && int(_request.getBody().size()) > _location.max_body)
 		this->_code = 413;
 	else
 	{
@@ -102,9 +101,12 @@ void	Response::takeLocation()
 		}
 		it++;
 	}
-	if (isFile(_request.getPath().substr(1)))
+	if (isFile(_request.getPath().substr(1)) || _request.getMethod() == "PUT")
 	{
 		_location.methods.push_back(0);
+		_location.methods.push_back(1);
+		_location.methods.push_back(2);
+		_location.methods.push_back(3);
 		_location.index = _request.getPath().substr(1);
 		_location.root = "";
 		_location.max_body = -1;
@@ -201,8 +203,32 @@ std::string		Response::writeHeaders() const
 void	Response::Get()
 {
 	std::string		str;
+	bool			cgi_bool;
 
-	if  (_code == 200)
+	cgi_bool = cgi(&_request, _location, _serv.path);
+	if (cgi_bool)
+	{
+		size_t		i = 0;
+		size_t		j = _response.size() - 2;
+
+		_type = "text/html";
+		_response = _request.getBody();
+
+		while (_response.find("\r\n\r\n", i) != std::string::npos || _response.find("\r\n", i) == i)
+		{
+			std::string	str = _response.substr(i, _response.find("\r\n", i) - i);
+			if (str.find("Status: ") == 0)
+				_code = std::atoi(str.substr(8, 3).c_str());
+			else if (str.find("Content-Type: ") == 0)
+				_type = str.substr(14, str.size());
+			i += str.size() + 2;
+		}
+		while (_response.find("\r\n", j) == j)
+			j -= 2;
+
+		_response = _response.substr(i, j - i);
+	}
+	else if  (_code == 200)
 		readContent();
 	else
 		_response = readHtml(_serv.error_page + "/" + std::to_string(_code) + ".html");
@@ -212,12 +238,13 @@ void	Response::Post()
 {
 	bool			cgi_bool;
 
-	cgi_bool = cgi(&_request, _location);
+	cgi_bool = cgi(&_request, _location, _serv.path);
 	if (cgi_bool)
 	{
 		size_t		i = 0;
 		size_t		j = _response.size() - 2;
 
+		_type = "text/html";
 		_response = _request.getBody();
 
 		while (_response.find("\r\n\r\n", i) != std::string::npos || _response.find("\r\n", i) == i)
@@ -244,10 +271,12 @@ void	Response::Post()
 void	Response::Delete()
 {
 	(void)_request;
+	std::string		path;
 
-	if (isFile(_request.getPath()))
+	path = _location.root + "/" + _location.index;
+	if (isFile(path))
 	{
-		if (remove(_request.getPath().c_str()) == 0)
+		if (remove(path.c_str()) == 0)
 			_code = 204;
 		else
 			_code = 403;
@@ -277,7 +306,7 @@ void				Response::readContent()
 	std::stringstream	buf;
 
 	_response = "";
-	path = _request.getPath();
+	path = _location.root;
 	root = _headers["Location"];
 
 	if (isFile(root))
@@ -308,15 +337,13 @@ void				Response::readContent()
 	_code = 200;
 }
 
-const std::string	&Response::getAutoIndexPage(std::string &path, const std::string &host, std::string const &port) const
+const std::string	Response::getAutoIndexPage(std::string &path, const std::string &host, std::string const &port) const
 {
 	DIR			*dir;
 	std::string	page;
 	std::string link;
-	char		buf[1000];
 
-	getcwd(buf, 1000);
-	path = buf + path;
+	page = "";
 	dir = opendir(path.c_str());
 	page = "<!DOCTYPE html>\n"
 		   "<html>\n"
@@ -354,9 +381,9 @@ void			Response::writeContent(std::string const &str)
 {
 	std::ofstream	file;
 
-	if (isFile(_request.getPath()))
+	if (isFile(_request.getPath().substr(1)))
 	{
-		file.open(_request.getPath().c_str());
+		file.open(_request.getPath().substr(1).c_str());
 		file << str;
 		file.close();
 		_code = 204;
@@ -364,7 +391,7 @@ void			Response::writeContent(std::string const &str)
 	}
 	else
 	{
-		file.open(_request.getPath().c_str(), std::ofstream::out | std::ofstream::trunc);
+		file.open(_request.getPath().substr(1).c_str(), std::ofstream::out | std::ofstream::trunc);
 		if (file.is_open() == false)
 		{
 			_code = 403;
