@@ -205,7 +205,9 @@ void	Response::Get()
 	std::string		str;
 	bool			cgi_bool;
 
-	cgi_bool = cgi(&_request, _location, _serv.path);
+	cgi_bool = false;
+	if (_location.exec != "")
+		cgi_bool = cgi(&_request, _location, _serv.path);
 	if (cgi_bool)
 	{
 		size_t		i = 0;
