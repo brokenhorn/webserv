@@ -10,7 +10,7 @@
 
 #include "parser.hpp"
 
-#define FILE_OPEN "../conf.conf"
+#define FILE_OPEN "conf.conf"
 #define OPEN_FIGURE 1
 #define CLOS_FIGURE 0
 

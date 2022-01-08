@@ -12,7 +12,7 @@ ServerUnit::ServerUnit(int port, Serv conf)
 {
 	this->port = port;
 	this->conf = conf;
-	int rc;
+	int rc = 0;
 	int on;
 
 

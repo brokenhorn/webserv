@@ -32,7 +32,7 @@ char **envp_creator(Request *req, Location loc, char *path){
 	else
 		args_to_map["QUERY_STRING"];
 	args_to_map["CONTENT_TYPE"] = req->getHeaders().at("Content-Type");
-	args_to_map["SCRIPT_NAME"] = loc.root + "/"+ loc.exec;
+	args_to_map["SCRIPT_NAME"] = loc.root + loc.exec;
 //	args_to_map["SERVER_NAME"] = req->_client->_server->_name; // nom ou adresse IP de la machine serveur HTTP
 	args_to_map["SERVER_PORT"] = req->getPort();
 	headers = req->getHeaders();
@@ -82,7 +82,7 @@ bool cgi(Request *req, Location loc, char *path){
 
 	save[0] = dup(0);
 	save[1] = dup(1);
-	binaire = loc.root + "/" + loc.exec;
+	binaire = loc.root + loc.exec;
 	args[0] = (char *)binaire.c_str();
 	args[1] = (char *)req->getPath().c_str();
 	args[2] = NULL;

@@ -9,7 +9,7 @@ int main(int argc, __unused char **argv, char **envp)
 	std::vector<Serv> servers_conf;
 	char* _path = NULL;
 	int z = 0;
-	char *ret;
+	char *ret = NULL;
 	while(envp[z])
 	{
 		if ((ret = strstr(envp[z], "PATH")))
